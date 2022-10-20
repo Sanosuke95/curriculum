@@ -1,0 +1,27 @@
+<h1>Contact</h1>
+
+<%= form_with model: @contact do |f| %>
+    <div>
+        <%= f.label :name, "name" %>
+        <%= f.text_field :name %>
+    </div>
+
+    <div>
+        <%= f.label :email, "email" %>
+        <%= f.text_field :email %>
+    </div>
+
+    <div>
+        <%= f.label :subject, "subject" %>
+        <%= f.text_field :subject %>
+    </div>
+
+    <div>
+        <%= f.label :message, "message" %>
+        <%= f.text_area :message %>
+    </div>
+
+    <div>
+        <%= f.submit "Submit" %>
+    </div>
+<% end %>
