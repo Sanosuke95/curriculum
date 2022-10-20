@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'contacts/new'
-  resources :contacts
+  get 'contact', to: 'contacts#new'
+  resources :contacts, only: [:index, :new, :create]
   root 'pages#home'
 end
