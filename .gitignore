@@ -3,7 +3,6 @@
 
 ### AptanaStudio ###
 .metadata
-bin/
 tmp/
 *.tmp
 *.bak
