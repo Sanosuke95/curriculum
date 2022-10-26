@@ -1,0 +1,12 @@
+<h1>Add Resume</h1>
+
+<%= form_with model: @resume do |f| %>
+    <div>
+        <%= f.label :tilte, "title" %>
+        <%= f.text_field :title %>
+    </div>
+
+    <div>
+        <%= f.submit "Submit" %>
+    </div>
+<% end %>
