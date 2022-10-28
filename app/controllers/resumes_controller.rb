@@ -15,7 +15,7 @@ class ResumesController < ApplicationController
       flash[:success] = 'Title validate for the test'
       cookies[:resume_id] = @resume.id
       puts cookies[:resume_id]
-      redirect_to root_path
+      redirect_to skills_new_path
     else
       flash[:error] = 'Something went wrong'
       render 'new'
