@@ -1,0 +1,25 @@
+<h1>Skills</h1>
+
+<h3>Title skill</h3>
+
+<% if @skill_save %>
+    <% @skill_save.each do |skill| %>
+        <div>
+            <p><%= skill.title %> - <%= skill.level %></p>
+        </div>
+    <% end %>
+<% end %>
+
+<%= form_with model: @skill do |f| %>
+    <div id="skill_content">
+            <%= f.label :title, "title" %>
+            <%= f.text_field :title %>
+            <%= f.label :title, "level" %>
+            <%= f.number_field :level, in: 0..5.0, step: 0.5 %>
+    </div>
+
+    <div>
+        <%= f.submit 'Submit' %>
+        <%= link_to  "Pass", root_path %>
+    </div>
+<% end %>

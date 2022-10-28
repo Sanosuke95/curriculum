@@ -13,8 +13,8 @@ class ResumesController < ApplicationController
     @resume = Resume.new(params_resume)
     if @resume.save
       flash[:success] = 'Title validate for the test'
-      session[:resume_id] = @resume.id
-      puts session[:resume_id]
+      cookies[:resume_id] = @resume.id
+      puts cookies[:resume_id]
       redirect_to root_path
     else
       flash[:error] = 'Something went wrong'
