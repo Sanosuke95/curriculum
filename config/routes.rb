@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   resources :resumes
   resources :skills
   resources :experiences
+  resources :educations
   root 'pages#home'
 end
