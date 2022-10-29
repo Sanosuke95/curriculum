@@ -10,12 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_26_155101) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_29_122306) do
   create_table "contacts", charset: "utf8mb4", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.string "subject"
     t.text "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "experiences", charset: "utf8mb4", force: :cascade do |t|
+    t.integer "resume_id"
+    t.string "title"
+    t.date "begin_date"
+    t.date "end_date"
+    t.text "location"
+    t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

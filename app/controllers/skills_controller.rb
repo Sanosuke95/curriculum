@@ -5,7 +5,6 @@ class SkillsController < ApplicationController
 
   def new
     @skill_save = Skill.where("resume_id = #{resume}")
-    @skill_test = 'Hello toto'
     @skill = Skill.new
   end
 
