@@ -1,4 +1,5 @@
 class ResumesController < ApplicationController
+  
   def index
   end
 
@@ -14,11 +15,10 @@ class ResumesController < ApplicationController
     if @resume.save
       flash[:success] = 'Title validate for the test'
       cookies[:resume_id] = @resume.id
-      puts cookies[:resume_id]
-      redirect_to skills_new_path
+      redirect_to new_skill_path
     else
       flash[:error] = 'Something went wrong'
-      render 'new'
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -28,6 +28,6 @@ class ResumesController < ApplicationController
   private
 
   def params_resume
-    params.require(:resume).permit(:title)
+    params.require(:resume).permit(:title, :body)
   end
 end

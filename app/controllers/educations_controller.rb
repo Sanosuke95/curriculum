@@ -1,5 +1,6 @@
 class EducationsController < ApplicationController
   def new
+    @education_save = Education.where("resume_id = #{resume}")
     @education = Education.new
   end
 
@@ -8,10 +9,10 @@ class EducationsController < ApplicationController
     @education.resume_id = cookies[:resume_id]
     if @education.save
       flash[:success] = 'Object successfully created'
-      redirect_to @education
+      redirect_to new_education_path
     else
       flash[:error] = 'Something went wrong'
-      render 'new'
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -25,5 +26,9 @@ class EducationsController < ApplicationController
 
   def params_education
     params.require(:education).permit(:title, :begin_date, :end_date, :location, :body)
+  end
+
+  def resume
+    cookies[:resume_id]
   end
 end

@@ -1,5 +1,16 @@
 <h1>Add Languages</h1>
 
+<h3>Language List</h3>
+
+
+<% if @language_save %>
+    <% @language_save.each do |language| %>
+        <div>
+            <p><%= language.name %> : <%= language.level %></p>
+        </div>
+    <% end %>
+<% end %>
+
 <%= form_with model: @language do |f| %>
     <div>
         <%= f.label :name, "name" %>

@@ -1,8 +1,21 @@
 <h1>Add Educations</h1>
 
+<h3>Education list</h3>
+
+<% if @education_save %>
+    <% @education_save.each do |education| %>
+        <div>
+            <h4><%= education.title %></h4>
+            <p><%= education.location %></p>
+            <p><%= education.begin_date %> - <%= education.end_date %></p>
+            <p><%= education.body %></p>
+        </div>
+    <% end %>
+<% end %>
+
 <%= form_with model: @education  do |f| %>
     <div>
-        <%= f.label :title, "title" %>
+        <%= f.label :title, "school" %>
         <%= f.text_field :title %>
     </div>
 
@@ -28,6 +41,8 @@
 
     <div>
         <%= f.submit "Submit" %>
+        <%= link_to "Pass", new_language_path %>
+        <%= link_to "Back", :back %>
     </div>
 
 <% end %>

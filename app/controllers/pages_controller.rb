@@ -5,4 +5,8 @@ class PagesController < ApplicationController
     puts @resume
     puts 'End of the test'
   end
+
+  def preview
+    
+  end
 end

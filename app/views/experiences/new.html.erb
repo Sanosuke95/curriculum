@@ -1,6 +1,17 @@
 <h1>Add Experiences</h1>
 
+<h3>Experience List</h3>
 
+<% if @experience_save %>
+    <% @experience_save.each do |experience| %>
+        <div>
+            <h4><%= experience.title %></h4>
+            <p><%= experience.location %></p>
+            <p><%= experience.begin_date %> - <%= experience.end_date %></p>
+            <p><%= experience.body %></p>
+        </div>
+    <% end %>
+<% end %>
 
 <%= form_with model: @experience do |f| %>
     <div>
@@ -30,5 +41,7 @@
 
     <div>
         <%= f.submit "Submit" %>
+        <%= link_to "Pass", new_education_path %>
+        <%= link_to "Back", :back %>
     </div>
 <% end %>

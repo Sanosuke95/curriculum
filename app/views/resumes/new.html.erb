@@ -2,8 +2,19 @@
 
 <%= form_with model: @resume do |f| %>
     <div>
-        <%= f.label :tilte, "title" %>
+        <%= f.label :title, "title" %>
         <%= f.text_field :title %>
+        <% @resume.errors.full_messages_for(:title).each do |message| %>
+            <div><%= message %></div>
+        <% end %>
+    </div>
+
+    <div>
+        <%= f.label :body, "resume" %>
+        <%= f.text_area :body %>
+        <% @resume.errors.full_messages_for(:title).each do |message| %>
+            <div><%= message %></div>
+        <% end %>
     </div>
 
     <div>

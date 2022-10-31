@@ -1,5 +1,6 @@
 class ExperiencesController < ApplicationController
   def new
+    @experience_save = Experience.where("resume_id = #{resume}")
     @experience = Experience.new
   end
 
@@ -10,8 +11,7 @@ class ExperiencesController < ApplicationController
       flash[:success] = 'Object successfully created'
       redirect_to new_experience_path
     else
-      flash[:error] = 'Something went wrong'
-      render 'new'
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -25,5 +25,9 @@ class ExperiencesController < ApplicationController
 
   def params_experience
     params.require(:experience).permit(:title, :begin_date, :end_date, :location, :body)
+  end
+
+  def resume
+    cookies[:resume_id]
   end
 end
