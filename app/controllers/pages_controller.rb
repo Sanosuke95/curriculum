@@ -7,6 +7,14 @@ class PagesController < ApplicationController
   end
 
   def preview
-    
+    @resume = Resume.find(resume)
+    @skills = Skill.where("resume_id = #{resume}")
+    @experiences = Experience.where("resume_id = #{resume}")
+  end
+
+  private
+
+  def resume
+    cookies[:resume_id]
   end
 end
