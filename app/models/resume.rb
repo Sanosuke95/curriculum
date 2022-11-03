@@ -1,4 +1,4 @@
 class Resume < ApplicationRecord
-    validates :title, presence: { message: 'This part does not blank' }
+    validates :title, presence: true
     validates :body, presence: true, length: { minimum: 10 }
 end
