@@ -1,0 +1,19 @@
+<%= form_with model: skill do |f| %>
+    <div class="row">
+        <div class="col">
+            <%= f.label :title, "title", class: "form-label" %>
+            <%= f.text_field :title, class: "form-control" %>
+        </div>
+
+        <div class="col">
+            <%= f.label :title, "level", class: "form-label" %>
+            <%= f.select :level, options_for_select(0..5), {},class: "form-select" %>
+        </div>
+    </div>
+
+    <div class="col">
+        <%= f.submit 'Submit', class: "btn btn-primary" %>
+        <%= link_to  "Pass", new_experience_path %>
+        <%= link_to "Back", :back %>
+    </div>
+<% end %>

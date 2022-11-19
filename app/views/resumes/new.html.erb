@@ -1,32 +1,3 @@
 <h1>Add Resume</h1>
 
-<div class="toast show align-items-center text-white bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
-  <div class="d-flex">
-    <div class="toast-body">
-      Hello, world! This is a toast message.
-    </div>
-    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
-  </div>
-</div>
-
-<%= form_with model: @resume do |f| %>
-    <div class="mb-3">
-        <%= f.label :title, "title", class: "form-label" %>
-        <%= f.text_field :title, class: "form-control" %>
-        <% @resume.errors.full_messages_for(:title).each do |message| %>
-            <div class="invalid-feedback" ><%= message %></div>
-        <% end %>
-    </div>
-
-    <div class="mb-3">
-        <%= f.label :body, "resume", class: "form-label" %>
-        <%= f.text_area :body, class: "form-control" %>
-        <% @resume.errors.full_messages_for(:title).each do |message| %>
-            <div class="invalid-feedback" ><%= message %></div>
-        <% end %>
-    </div>
-
-    <div>
-        <%= f.submit "Submit" %>
-    </div>
-<% end %>
+<%= render 'resumes/shared/form', resume: @resume %>

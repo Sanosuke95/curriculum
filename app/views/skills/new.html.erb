@@ -3,24 +3,24 @@
 <h3>Title skill</h3>
 
 <% if @skill_save %>
-    <% @skill_save.each do |skill| %>
-        <div>
-            <p><%= skill.title %> - <%= skill.level %></p>
+    <div class="container text-center">
+        <div class="row">
+            <% @skill_save.each do |skill| %>
+                <div class="col-md-4">
+                    <p><%= skill.title %> - <%= skill.level %></p>
+                </div>
+            <% end %>
         </div>
-    <% end %>
-<% end %>
-
-<%= form_with model: @skill do |f| %>
-    <div id="skill_content">
-            <%= f.label :title, "title" %>
-            <%= f.text_field :title %>
-            <%= f.label :title, "level" %>
-            <%= f.number_field :level, in: 0..5.0, step: 0.5 %>
-    </div>
-
-    <div>
-        <%= f.submit 'Submit' %>
-        <%= link_to  "Pass", new_experience_path %>
-        <%= link_to "Back", :back %>
     </div>
 <% end %>
+
+<div data-controller="hello">
+    <p data-action="hello#test"></p>
+</div>
+
+<div data-controller="hello">
+  <input data-hello-target="name" type="text">
+  <button data-action="click->hello#greet">Greet</button>
+</div>
+
+<%= render 'skills/shared/form', skill: @skill %>

@@ -1,2 +1,11 @@
-<h1>Resumes#show</h1>
-<p>Find me in app/views/resumes/show.html.erb</p>
+<h1>Resumes</h1>
+
+<h3>title : <%= @resume.title %></h3>
+
+<p>body : <%= @resume.body %></p>
+
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+  <%= link_to 'next', new_skill_path, class: 'btn btn-success', type: "button" %>
+  <%= link_to 'edit', edit_resume_path(@resume.id), class: 'btn btn-primary', type: "button" %>
+  <%= link_to 'delete', resume_path(@resume.id), data: {turbo_method: :delete}, class: 'btn btn-danger', type: "button" %>
+</div>

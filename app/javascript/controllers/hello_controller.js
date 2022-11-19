@@ -1,11 +1,11 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  // connect() {
-  //   this.element.textContent = "Hello World!"
-  // }
+  connect() {
+    console.log("Voici un premier test pour cet partie")
+  }
 
-  test() {
-    console.log("Hello this is my first test")
+  greet() {
+    console.log("Hello, Stimulus!", this.element)
   }
 }
