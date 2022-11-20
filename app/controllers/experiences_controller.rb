@@ -1,12 +1,15 @@
 class ExperiencesController < ApplicationController
   def new
     @experience_save = Experience.where("resume_id = #{resume}")
+    puts 'begin test for resume id'
+    puts @experience_save
+    puts 'end test for experience'
     @experience = Experience.new
   end
 
   def create
     @experience = Experience.new(params_experience)
-    @experience.resume_id = cookies[:resume_id]
+    @experience.resume_id = session[:resume_id]
     if @experience.save
       flash[:success] = 'Object successfully created'
       redirect_to new_experience_path
