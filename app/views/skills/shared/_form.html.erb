@@ -11,9 +11,14 @@
         </div>
     </div>
 
-    <div class="col">
+    <div></div>
+    
+    <div class="text-center">
         <%= f.submit 'Submit', class: "btn btn-primary" %>
-        <%= link_to  "Pass", new_experience_path %>
-        <%= link_to "Back", :back %>
     </div>
+
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <%= link_to "Back", :back, class: 'btn btn-secondary', type: "button" %>
+        <%= link_to  "Pass", new_experience_path, class: 'btn btn-success', type: "button" %>
+        </div>
 <% end %>

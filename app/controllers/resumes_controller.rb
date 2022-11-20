@@ -17,7 +17,7 @@ class ResumesController < ApplicationController
     @resume = Resume.new(params_resume)
     if @resume.save
       flash[:success] = 'Title validate for the test'
-      cookies[:resume_id] = @resume.id
+      session[:resume_id] = @resume.id
       redirect_to new_skill_path
     else
       render :new, status: :unprocessable_entity
@@ -43,7 +43,7 @@ class ResumesController < ApplicationController
     @resume = Resume.find(params[:id])
     @resume.destroy
 
-    cookies.delete :resume_id
+    session.delete :resume_id
     redirect_to new_resume_path, status: :see_other
   end
 
@@ -54,7 +54,12 @@ class ResumesController < ApplicationController
   end
 
   def check_data
-    redirect_to resume_path(cookies[:resume_id]) if cookies[:resume_id]
+    redirect_to resume_path(session[:resume_id]) if session[:resume_id]
   end
   
+  def show_data
+    if session[:resume_id].empty?
+      
+    end
+  end
 end

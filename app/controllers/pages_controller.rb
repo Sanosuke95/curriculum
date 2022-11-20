@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  before_action :clean_session
   def home
     @resume = cookies[:resume_id]
     puts 'Test for the session id'
@@ -15,6 +16,10 @@ class PagesController < ApplicationController
   private
 
   def resume
-    cookies[:resume_id]
+    session[:resume_id]
+  end
+
+  def clean_session
+    session.delete :resume_id
   end
 end

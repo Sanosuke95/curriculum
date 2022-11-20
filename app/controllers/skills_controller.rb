@@ -5,6 +5,7 @@ class SkillsController < ApplicationController
 
   def new
     @skill_save = Skill.where("resume_id = #{resume}")
+    puts resume
     @test = [0, 1, 2, 3, 4, 5]
     @skill = Skill.new
   end
@@ -43,6 +44,6 @@ class SkillsController < ApplicationController
   end
 
   def resume
-    cookies[:resume_id]
+    session[:resume_id]
   end
 end

@@ -14,13 +14,4 @@
     </div>
 <% end %>
 
-<div data-controller="hello">
-    <p data-action="hello#test"></p>
-</div>
-
-<div data-controller="hello">
-  <input data-hello-target="name" type="text">
-  <button data-action="click->hello#greet">Greet</button>
-</div>
-
 <%= render 'skills/shared/form', skill: @skill %>

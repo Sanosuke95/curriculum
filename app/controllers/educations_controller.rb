@@ -29,6 +29,6 @@ class EducationsController < ApplicationController
   end
 
   def resume
-    cookies[:resume_id]
+    session[:resume_id]
   end
 end
