@@ -6,7 +6,7 @@ class EducationsController < ApplicationController
 
   def create
     @education = Education.new(params_education)
-    @education.resume_id = cookies[:resume_id]
+    @education.resume_id = session[:resume_id]
     if @education.save
       flash[:success] = 'Object successfully created'
       redirect_to new_education_path

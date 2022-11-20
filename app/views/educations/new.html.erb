@@ -14,35 +14,40 @@
 <% end %>
 
 <%= form_with model: @education  do |f| %>
-    <div>
-        <%= f.label :title, "school" %>
-        <%= f.text_field :title %>
+    <div class="mb-3">
+        <%= f.label :title, "school", class: "form-label" %>
+        <%= f.text_field :title, class: "form-control" %>
     </div>
 
-    <div>
-        <%= f.label :begin_date, "begin_date" %>
-        <%= f.date_field :begin_date %>
+    <div class="row g-3">
+        <div class="col-sm-6">
+            <%= f.label :begin_date, "begin_date", class: "form-label" %>
+            <%= f.date_field :begin_date, class: "form-control" %>
+        </div>
+
+        <div class="col-sm-6">
+            <%= f.label :end_date, "end_date", class: "form-label" %>
+            <%= f.date_field :end_date, class: "form-control" %>
+        </div>
     </div>
 
-    <div>
-        <%= f.label :end_date, "end_date" %>
-        <%= f.date_field :end_date %>
+    <div class="mb-3">
+        <%= f.label :location, "location", class: "form-label" %>
+        <%= f.text_field :location, class: "form-control" %>
     </div>
 
-    <div>
-        <%= f.label :location, "location" %>
-        <%= f.text_field :location %>
+    <div class="mb-3">
+        <%= f.label :body, "description", class: "form-label" %>
+        <%= f.text_area :body, class: "form-control" %>
     </div>
 
-    <div>
-        <%= f.label :body, "description" %>
-        <%= f.text_area :body %>
+    <div class="text-center">
+        <%= f.submit "Submit", class: "btn btn-primary" %>
     </div>
 
-    <div>
-        <%= f.submit "Submit" %>
-        <%= link_to "Pass", new_language_path %>
-        <%= link_to "Back", :back %>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <%= link_to "Back", :back, class: 'btn btn-secondary', type: "button" %>
+        <%= link_to "Pass", new_language_path, class: 'btn btn-success', type: "button" %>
     </div>
 
 <% end %>
