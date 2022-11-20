@@ -6,7 +6,7 @@ class LanguagesController < ApplicationController
 
   def create
     @language = Language.new(params_language)
-    @language.resume_id = cookies[:resume_id]
+    @language.resume_id = session[:resume_id]
     if @language.save
       flash[:success] = "Object successfully created"
       redirect_to new_language_path
@@ -30,6 +30,6 @@ class LanguagesController < ApplicationController
   end
 
   def resume
-    cookies[:resume_id]
+    session[:resume_id]
   end
 end

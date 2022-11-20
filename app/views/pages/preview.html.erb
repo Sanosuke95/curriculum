@@ -1,16 +1,52 @@
 <h1>Preview</h1>
 
 <div>
+    <h2>Resume</h2>
     <h3><%= @resume.title %></h3>
     <p><%= @resume.body %></p>
 </div>
 
 <div>
+    <h2>Skills</h2>
     <% @skills.each do |skill| %>
         <p><%= skill.title %> : <%= skill.level %></p>
     <% end %>
 </div>
 
 <div>
-    
+    <h2>Experience</h2>
+    <% @experiences.each do |experience| %>
+        <div>
+            <h4><%= experience.title %></h4>
+            <p><%= experience.location %></p>
+            <p><%= experience.begin_date %> - <%= experience.end_date %></p>
+            <p><%= experience.body %></p>
+        </div>
+    <% end %>
 </div>
+
+<div>
+    <h2>Educations</h2>
+    <% @educations.each do |education| %>
+    <div>
+        <h4><%= education.title %></h4>
+        <p><%= education.location %></p>
+        <p><%= education.begin_date %> - <%= education.end_date %></p>
+        <p><%= education.body %></p>
+    </div>
+    <% end %>
+</div>
+
+<div>
+    <h2>Languages</h2>
+    <% @languages.each do |language| %>
+        <div>
+            <p><%= language.name %> : <%= language.level %></p>
+        </div>
+    <% end %>
+</div>
+
+<div class="text-center">
+    <%= link_to "save", root_path, class: 'btn btn-success', type: "button" %>
+</div>
+

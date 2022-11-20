@@ -1,5 +1,4 @@
 class PagesController < ApplicationController
-  before_action :clean_session
   def home
     @resume = cookies[:resume_id]
     puts 'Test for the session id'
@@ -11,6 +10,8 @@ class PagesController < ApplicationController
     @resume = Resume.find(resume)
     @skills = Skill.where("resume_id = #{resume}")
     @experiences = Experience.where("resume_id = #{resume}")
+    @educations = Education.where("resume_id = #{resume}")
+    @languages = Language.where("resume_id = #{resume}")
   end
 
   private
